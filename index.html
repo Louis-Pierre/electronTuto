@@ -4,6 +4,16 @@
     <meta charset="UTF-8">
     <title>Hello World!</title>
   </head>
+ <script>
+  const ipc = require('electron').ipcRenderer;
+  window.onload=function(){
+    document.getElementById('buttonC').addEventListener('click', () => {
+      ipc.send('openWindow2');
+    });
+};
+
+
+  </script>
   <body>
     <h1>Hello World!</h1>
     <!-- All of the Node.js APIs are available in this renderer process. -->
@@ -11,9 +21,24 @@
     Chromium <script>document.write(process.versions.chrome)</script>,
     and Electron <script>document.write(process.versions.electron)</script>.
 
+    <button type="buttonA" onclick="oo()">Click Me!</button>
+    <button id="buttonB" onclick="oo2()">Click Me! 2</button>
+    <button id="buttonC">Click Me! 3</button>
+
     <script>
       // You can also require other files to run in this process
       require('./renderer.js')
+    </script>
+    <script>
+    function oo(){
+      window.alert("fgf");
+
+    };
+
+    function oo2(){
+      ipc.send('opW2');
+    };
+
     </script>
   </body>
 </html>
