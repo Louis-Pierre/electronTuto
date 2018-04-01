@@ -76,7 +76,7 @@ ipc.on('openWindow2', () => {
 
     window2 = new BrowserWindow({width: 800, height: 600});
     window2.loadURL(url.format({
-      pathname: path.join(__dirname, 'app/Window2.html'),
+      pathname: path.join(__dirname, 'app/html/Window2.html'),
       protocol: 'file:',
       slashes: true
     }))
